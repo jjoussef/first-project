@@ -1,0 +1,66 @@
+{% spaceless %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'custom.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <!-- nav -->
+
+    <nav>
+        <div class="logo">
+            <a href="#">
+                <font>Django</font>Shop
+            </a>
+        </div>
+
+        <div class="cart">
+            <a href="#">Cart(4)</a>
+        </div>
+    </nav>
+
+
+
+    {% block content %}
+   
+    {% endblock content %}
+
+
+    <!-- footer -->
+    <footer>
+        <div class="row">
+            <div class="col first">
+                <a href="#">
+                    <font>Django</font>Shop
+                </a>
+            </div>
+            <div class="col second">
+                <ul>
+                    <li><a href="#">link</a></li>
+                    <li><a href="#">link</a></li>
+                    <li><a href="#">link</a></li>
+                    <li><a href="#">link</a></li>
+                </ul>
+            </div>
+            <div class="col third">
+                <a href="#">f</a>
+                <a href="#">y</a>
+                <a href="#">i</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
+
+
+{% endspaceless %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}{{product.name}}{% endblock title %}
+
+
+
+{% block content %}
+<div class="row">
+    <div class="col first">
+        <img src="{{product.image.url}}">
+    </div>
+    <div class="col first">
+        <div class="detail_container">
+        <h2>{{product.name}}</h2>
+        <a href="{% url 'product_list_by_category' product.category.slug %}">{{product.category}}</a>
+        <p class="pr">${{product.price}}</p>
+        <p class="description">{{product.description}}</p>
+        <form action="{% url 'cart_add' product.id%}" method="POST">
+         {% csrf_token %}
+         {{form}}
+         <input type="submit" value="Add To Cart">
+        </form>
+        
+        </div>
+    </div>
+</div>
+{% endblock content %}

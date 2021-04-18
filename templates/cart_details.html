@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Shopping Details{% endblock title %}
+
+
+{% block content %}
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Price</th>
+    </tr>
+    {% for item in cart %}
+        {% with item.product as product %}
+        <tr>
+            <td><img src="{{product.image.url}}" alt=""></td>
+            <td>{{product.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.total_price}}</td>
+            <td>
+                <form action="{% url 'cart_remove' product.id%}" method="POST">
+                    {% csrf_token %}
+        
+                </form>
+            </td>
+           
+        </tr>
+        {% endwith %}
+    
+    {% endfor %}
+</table>
+
+
+
+{% endblock content %}
